@@ -10,4 +10,4 @@ COPY ./scripts/zshwrapper /bin/zshwrapper
 RUN npm i -g dockerfile-language-server-nodejs
 
 # PHP
-run npm i -g intelephense
+RUN npm i -g intelephense
