@@ -1,10 +1,13 @@
 FROM alpine:latest
 RUN apk add npm
 
-RUN    npm i -g \
-	bash-language-server \
-    dockerfile-language-server-nodejs \
-    intelephense
-
-RUN apk add shellcheck zsh
+# bash, sh, zsh
+RUN apk add shellcheck zsh && \
+    npm i -g bash-language-server
 COPY ./scripts/zshwrapper /bin/zshwrapper
+
+# Dockerfile
+RUN npm i -g dockerfile-language-server-nodejs
+
+# PHP
+run npm i -g intelephense
