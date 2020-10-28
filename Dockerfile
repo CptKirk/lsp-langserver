@@ -1,5 +1,4 @@
-FROM alpine:latest
-RUN apk add npm
+FROM node:10.23-alpine
 
 # bash, sh, zsh
 RUN apk add shellcheck zsh && \
