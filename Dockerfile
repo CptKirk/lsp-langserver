@@ -9,4 +9,16 @@ COPY ./scripts/zshwrapper /bin/zshwrapper
 RUN npm i -g dockerfile-language-server-nodejs
 
 # PHP
+RUN apk add curl php7 \
+    php7-json \
+    php7-openssl \
+    php7-phar \
+    php7-mbstring \
+    php7-dom \
+    php7-xml \
+    php7-xmlwriter \
+    php7-tokenizer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN npm i -g intelephense
+RUN mkdir $HOME/intelephense && \
+    echo "00JEFN0JUGTNF5S" > $HOME/intelephense/licence.txt
