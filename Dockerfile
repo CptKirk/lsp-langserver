@@ -22,5 +22,7 @@ RUN apk add curl php7 \
     php7-tokenizer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN npm i -g intelephense
-RUN mkdir $HOME/intelephense && \
-    echo ${KEY} > $HOME/intelephense/licence.txt
+
+RUN mkdir $HOME/intelephense
+
+COPY licence.txt intelephense/licence.txt
