@@ -1,7 +1,5 @@
 FROM node:10.23-alpine
 
-ARG KEY
-
 # bash, sh, zsh
 RUN apk add shellcheck zsh && \
     npm i -g bash-language-server
