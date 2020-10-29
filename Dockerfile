@@ -1,5 +1,7 @@
 FROM node:10.23-alpine
 
+ARG KEY
+
 # bash, sh, zsh
 RUN apk add shellcheck zsh && \
     npm i -g bash-language-server
@@ -21,4 +23,4 @@ RUN apk add curl php7 \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN npm i -g intelephense
 RUN mkdir $HOME/intelephense && \
-    echo "00JEFN0JUGTNF5S" > $HOME/intelephense/licence.txt
+    echo ${KEY} > $HOME/intelephense/licence.txt
